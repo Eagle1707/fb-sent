@@ -109,7 +109,7 @@ def save_data():
     r = Report(user, timestamp, content)
     db.session.add(r)
     db.session.commit()
-    return jsonify({'action':'successful'})
+    return jsonify({'action':'successful', 'user':user, 'content':content, 'timestamp':timestamp})
 
 
 @app.route('/logout', methods=('GET', 'POST'))
