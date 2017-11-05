@@ -6,3 +6,4 @@ Werkzeug
 wsgiref
 Flask-WTF
 alembic
+gunicorn
