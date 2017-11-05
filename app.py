@@ -5,7 +5,7 @@ from forms import SignupForm, LoginForm
 import os
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///paste.db"
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 app.config['SECRET_KEY'] = os.urandom(24)
 
 db = SQLAlchemy(app)
