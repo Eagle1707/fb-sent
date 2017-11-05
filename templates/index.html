@@ -980,6 +980,52 @@
       display: inline-block;
       margin-left: 10px;
     }
+
+    #mainPopup {
+      padding: 10px;
+      height: 120px;
+      width: 200px;
+      font-family: Helvetica, Ubuntu, Arial, sans-serif;
+      text-align: center;
+      margin: 0 auto;
+    }
+    h1.count_head {
+      
+      font-size: 2em;
+      width: 50px;
+      height: 50px;
+      border-radius: 100px;
+      background: #9f9ff7;
+      margin: 0 auto;
+      color: white;
+      height: 40px;
+      padding-top: 10px;
+      padding-right: 1px;
+      border: 0;
+    }
+    .wrapper-modal{
+      width: 100%;
+      margin: 0 auto;
+    }
+    .wrapper-modal img{
+      border-radius: 100px;
+      width: 80px;
+    }
+    span.count{
+      background: #dddef9;
+      display: block;
+      border-radius: 100px;
+      height: 60px;
+      width: 72px;
+      margin: 0 auto;
+      padding-top: 10px;
+    }
+    .stats{
+      margin-bottom: 100px;
+    }
+    h5.user-name {
+      text-align: center;
+    }
   </style>
 </head>
 <body data-gr-c-s-loaded="true" style="">
@@ -994,7 +1040,27 @@
             <h5>“Kindness in words creates confidence. Kindness in thinking creates profoundness. Kindness in giving creates love.”</h5>
         </div>
         <div class="examination">
-            <h5>User: <span style="font-weight: lighter;">Muhammad Yasoob Ullah Khalid</span></h5>
+            <div class="row stats">
+              <div class="six columns">
+                <div id="mainPopup">
+                <h5>M. Yasoob Ullah Khalid</h5>
+
+                <div class="wrapper-modal">
+                  <img src="https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-1/p80x80/22728673_10214500546897366_5566296642557295426_n.jpg?oh=3502d077ada0dd77d70af57bd45fe11a&oe=5AA749FB">
+                </div>
+                </div>
+              </div>
+              <div class="six columns">
+                <div id="mainPopup">
+                <h5>No of Bullies Stopped</h5>
+
+                <div class="wrapper-modal">
+                  <span class="count">
+                <h1 class="count_head" id="count">{{ amount }}</h1></span>
+                </div>
+                </div>
+              </div>
+            </div>
             {% for report in reports%}
             <div class="post">
               <div class="row">
