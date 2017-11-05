@@ -955,11 +955,30 @@
     .name{
         font-weight: bold;
     }
-    .post span{
+    .post .reporttime{
         float: right;
     }
-    .post-text p{
+    .post .reportname{
+      margin-left: 10px;
+    }
+    .post .reportdesc{
+      margin-top: 10px;
+      display: inherit;
+    }
+    .post p{
         margin-bottom: 0px;
+    }
+    .post img{
+      float: left;
+      border-radius: 100px;
+      width: 60px;
+    }
+    .name{
+      margin-left: 5px;
+    }
+    .reportdescdiv{
+      display: inline-block;
+      margin-left: 10px;
     }
   </style>
 </head>
@@ -978,34 +997,47 @@
             <h5>User: Muhammad Yasoob Ullah Khalid</h5>
             {% for report in reports%}
             <div class="post">
-                <div class="name">
-                    {{report.name}}
-                    <span>{{report.time}}</span>
+              <div class="row">
+                    <img src="{{ https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-1/p100x100/22728673_10214500546897366_5566296642557295426_n.jpg?oh=617884883514c1a8e992b6a1e538f384&oe=5A6198DB }}" />
+
+                  <div class="name">
+                      <span class="reportname">{{report.name}}</span>
+                      <span class="reporttime">{{report.time}}</span>
+                  </div>
+                  <div class="reportdescdiv">
+                      <span class="reportdesc">{{report.content}}</span>
+                  </div>
                 </div>
-                <div class="post-text">
-                    <p>{{report.content}}</p>
-                </div>
+                
             </div>
             {% endfor %}
 
             <div class="post">
-                <div class="name">
-                    Muhammad Omair
-                    <span>12th October 2017</span>
-                </div>
-                <div class="post-text">
-                    <p>You are a fuck-tard Yasoob!</p>
-                </div>
-            </div>
+              <div class="row">
+                    <img src="https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-1/p100x100/22728673_10214500546897366_5566296642557295426_n.jpg?oh=617884883514c1a8e992b6a1e538f384&oe=5A6198DB" />
 
-            <div class="post">
-                <div class="name">
-                    Muhammad Omair
-                    <span>12th October 2017</span>
+                  <div class="name">
+                      <span class="reportname">Muhammad Omair</span>
+                      <span class="reporttime">24th August 2017</span>
+                  </div>
+                  <div class="reportdescdiv">
+                      <span class="reportdesc">Fuck you mother fucker</span>
+                  </div>
                 </div>
-                <div class="post-text">
-                    <p>You are a fuck-tard Yasoob!</p>
+                
+            </div><div class="post">
+              <div class="row">
+                    <img src="https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-1/p100x100/22728673_10214500546897366_5566296642557295426_n.jpg?oh=617884883514c1a8e992b6a1e538f384&oe=5A6198DB" />
+
+                  <div class="name">
+                      <span class="reportname">Arham Azeem</span>
+                      <span class="reporttime">20th June 2017</span>
+                  </div>
+                  <div class="reportdescdiv">
+                      <span class="reportdesc">You are a fucking retard</span>
+                  </div>
                 </div>
+                
             </div>
 
 
