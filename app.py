@@ -38,13 +38,11 @@ class Report(db.Model):
     name = db.Column(db.String(120))
     time = db.Column(db.String(120))
     content = db.Column(db.String(240))
-    imgurl = db.Column(db.String(240))
 
-    def __init__(self, name, time, content, imgurl):
+    def __init__(self, name, time, content):
         self.name = name
         self.time = time
         self.content = content
-        self.imgurl = imgurl
 
     def __repr__(self):
         return '<User %r>' % self.name
@@ -108,11 +106,10 @@ def save_data():
     user = request.args.get('user')
     content = request.args.get('content')
     timestamp = request.args.get('timestamp')
-    imgurl = request.args.get('imgurl')
 
     r = Report.query.filter_by(content=content).first()
     if r is None:
-        r = Report(user, timestamp, content, imgurl)
+        r = Report(user, timestamp, content)
         db.session.add(r)
         db.session.commit()
         return jsonify({'action':'successful', 'user':user, 'content':content, 'timestamp':timestamp})
