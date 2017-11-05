@@ -56,8 +56,9 @@ def check_user_status():
 
 @app.route('/', methods=('GET', 'POST'))
 def home():
-    r = Report.query.all().reverse()[:40]
-    return render_template('index.html', reports = r)
+    r = Report.query.all()
+    r.reverse()
+    return render_template('index.html', reports = r[:40])
 
 
 @app.route('/login', methods=('GET', 'POST'))
