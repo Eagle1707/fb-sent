@@ -976,14 +976,14 @@
         </div>
         <div class="examination">
             <h5>User: Muhammad Yasoob Ullah Khalid</h5>
-            
+            {% for report in reports%}
             <div class="post">
                 <div class="name">
-                    Muhammad Omair
-                    <span>12th October 2017</span>
+                    {{report.name}}
+                    <span>report.timestamp</span>
                 </div>
                 <div class="post-text">
-                    <p>You are a fuck-tard Yasoob!</p>
+                    <p>report.content</p>
                 </div>
             </div>
 

@@ -32,6 +32,20 @@ class User(db.Model):
     def __repr__(self):
         return '<User %r>' % self.name
 
+class Report(db.Model):
+    __tablename__ = 'report'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(120))
+    time = db.Column(db.String(120))
+    content = db.Column(db.String(240))
+
+    def __init__(self, name, time, content):
+        self.name = name
+        self.time = time
+        self.content = content
+
+    def __repr__(self):
+        return '<User %r>' % self.name
 
 @app.before_request
 def check_user_status():
@@ -42,7 +56,8 @@ def check_user_status():
 
 @app.route('/', methods=('GET', 'POST'))
 def home():
-    return render_template('index.html')
+    r = Report.query.all()
+    return render_template('index.html', reports = r)
 
 
 @app.route('/login', methods=('GET', 'POST'))
@@ -87,7 +102,14 @@ def signup():
 
 @app.route('/data',methods=('GET', 'POST'))
 def save_data():
-    pass
+    user = request.args.get('user')
+    msg = request.args.get('msg')
+    timestamp = request.args.get('timestamp')
+
+    r = Report(user, msg, timestamp)
+    db.session.add(r)
+    db.session.commit()
+
 
 @app.route('/logout', methods=('GET', 'POST'))
 def logout():
