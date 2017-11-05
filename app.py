@@ -107,10 +107,13 @@ def save_data():
     content = request.args.get('content')
     timestamp = request.args.get('timestamp')
 
-    r = Report(user, timestamp, content)
-    db.session.add(r)
-    db.session.commit()
-    return jsonify({'action':'successful', 'user':user, 'content':content, 'timestamp':timestamp})
+    r = Report.query.filter_by(content=content).first()
+    if r is None:
+        r = Report(user, timestamp, content)
+        db.session.add(r)
+        db.session.commit()
+        return jsonify({'action':'successful', 'user':user, 'content':content, 'timestamp':timestamp})
+    return jsonify({'action':'already in database', 'user':user, 'content':content, 'timestamp':timestamp})
 
 
 @app.route('/logout', methods=('GET', 'POST'))
