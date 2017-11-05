@@ -998,8 +998,11 @@
             {% for report in reports%}
             <div class="post">
               <div class="row">
-                    <img src="{{ https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-1/p100x100/22728673_10214500546897366_5566296642557295426_n.jpg?oh=617884883514c1a8e992b6a1e538f384&oe=5A6198DB }}" />
-
+                  {% if report.imgurl %}
+                      <img src="https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-1/p100x100/22728673_10214500546897366_5566296642557295426_n.jpg?oh=617884883514c1a8e992b6a1e538f384&oe=5A6198DB" />
+                  {% else %}
+                      <img src="https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-1/p100x100/22728673_10214500546897366_5566296642557295426_n.jpg?oh=617884883514c1a8e992b6a1e538f384&oe=5A6198DB" />
+                  {% endif %}
                   <div class="name">
                       <span class="reportname">{{report.name}}</span>
                       <span class="reporttime">{{report.time}}</span>
