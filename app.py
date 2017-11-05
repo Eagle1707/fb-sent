@@ -1,11 +1,11 @@
-from flask import Flask,request,session,abort,redirect,render_template,make_response, url_for, flash
+from flask import Flask,request,session,abort,redirect,render_template,make_response, url_for, flash, jsonify
 from flask.ext.sqlalchemy import SQLAlchemy
 from werkzeug import generate_password_hash, check_password_hash
 from forms import SignupForm, LoginForm
 import os
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///paste.db') 
 app.config['SECRET_KEY'] = os.urandom(24)
 
 db = SQLAlchemy(app)
@@ -103,12 +103,13 @@ def signup():
 @app.route('/data',methods=('GET', 'POST'))
 def save_data():
     user = request.args.get('user')
-    msg = request.args.get('msg')
+    content = request.args.get('content')
     timestamp = request.args.get('timestamp')
 
-    r = Report(user, msg, timestamp)
+    r = Report(user, timestamp, content)
     db.session.add(r)
     db.session.commit()
+    return jsonify({'action':'successful'})
 
 
 @app.route('/logout', methods=('GET', 'POST'))

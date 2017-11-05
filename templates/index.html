@@ -980,12 +980,13 @@
             <div class="post">
                 <div class="name">
                     {{report.name}}
-                    <span>report.timestamp</span>
+                    <span>{{report.time}}</span>
                 </div>
                 <div class="post-text">
-                    <p>report.content</p>
+                    <p>{{report.content}}</p>
                 </div>
             </div>
+            {% endfor %}
 
             <div class="post">
                 <div class="name">
