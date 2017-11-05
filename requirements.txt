@@ -7,3 +7,4 @@ wsgiref
 Flask-WTF
 alembic
 gunicorn
+psycopg2
