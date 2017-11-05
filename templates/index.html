@@ -994,12 +994,12 @@
             <h5>“Kindness in words creates confidence. Kindness in thinking creates profoundness. Kindness in giving creates love.”</h5>
         </div>
         <div class="examination">
-            <h5>User: Muhammad Yasoob Ullah Khalid</h5>
+            <h5>User: <span style="font-weight: lighter;">Muhammad Yasoob Ullah Khalid</span></h5>
             {% for report in reports%}
             <div class="post">
               <div class="row">
                   {% if report.imgurl %}
-                      <img src="https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-1/p100x100/22728673_10214500546897366_5566296642557295426_n.jpg?oh=617884883514c1a8e992b6a1e538f384&oe=5A6198DB" />
+                      <img src="{{ report.imgurl }}" />
                   {% else %}
                       <img src="https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-1/p100x100/22728673_10214500546897366_5566296642557295426_n.jpg?oh=617884883514c1a8e992b6a1e538f384&oe=5A6198DB" />
                   {% endif %}
