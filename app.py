@@ -42,10 +42,7 @@ def check_user_status():
 
 @app.route('/', methods=('GET', 'POST'))
 def home():
-    if session['user_name']:
-        users = User.query.all()
-        return render_template('index.html', users=users)
-    return redirect(url_for('login'),401)
+    return render_template('index.html')
 
 
 @app.route('/login', methods=('GET', 'POST'))
@@ -87,6 +84,10 @@ def signup():
             render_template('signup.html', form=form)
     return render_template('signup.html', form=form)
 
+
+@app.route('/data',methods=('GET', 'POST'))
+def save_data():
+    pass
 
 @app.route('/logout', methods=('GET', 'POST'))
 def logout():
